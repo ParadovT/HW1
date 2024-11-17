@@ -14,7 +14,14 @@ public class HairdresserController {
     @GetMapping("/newHairdresser")
     public String newHairdresserForm(Model model) {
         model.addAttribute("hairdresser", new Hairdresser());
-        return "hairdressers/form";
+        return "form"; // Updated path: now points to /WEB-INF/views/form.jsp
+    }
+
+    // GET request to show the list of Hairdressers
+    @GetMapping("/hairdressers")
+    public String listHairdressers(Model model) {
+        model.addAttribute("hairdressers", Hw1Application.hairdressers);
+        return "list"; // Updated path: now points to /WEB-INF/views/list.jsp
     }
 
     // POST request to add a new Hairdresser to the list

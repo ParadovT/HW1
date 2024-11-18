@@ -18,14 +18,28 @@ public class Hw1Application {
     public static void main(String[] args) {
         SpringApplication.run(Hw1Application.class, args);
 
-        // Create Stylist objects with necessary arguments
+        // Initialize the hairdressers and stylists
+        initializeData();
+    }
+
+    // Method to initialize data
+    private static void initializeData() {
+        // Create Stylist objects
         Stylist stylist1 = new Stylist("Noel", "Cutting, Styling", "Intermediate", 50);
         Stylist stylist2 = new Stylist("Tyler", "Coloring, Highlights", "Advanced", 80);
 
-        // Create Hairdresser with the stylists list and other required arguments
-        Hairdresser hairdresser = new Hairdresser(1, "New York", "Modern Hairstyles", Arrays.asList(stylist1, stylist2));
+        // Create Hairdresser with the list of stylists
+        Hairdresser hairdresser = new Hairdresser(1, "Leicester", "Modern Hairstyles", new ArrayList<>(Arrays.asList(stylist1, stylist2)));
 
         // Add the hairdresser to the static list
         hairdressers.add(hairdresser);
+    }
+
+    // Method to retrieve a Hairdresser by ID
+    public static Hairdresser getHairdresserById(int id) {
+        return hairdressers.stream()
+                .filter(h -> h.getId() == id)
+                .findFirst()
+                .orElse(null);
     }
 }

@@ -8,16 +8,16 @@ public class Hairdresser {
     private String speciality;
     private List<Stylist> stylists;
 
-    // Existing constructor
+    // No-argument constructor
+    public Hairdresser() {
+    }
+
+    // Parameterized constructor
     public Hairdresser(int id, String city, String speciality, List<Stylist> stylists) {
         this.id = id;
         this.city = city;
         this.speciality = speciality;
         this.stylists = stylists;
-    }
-
-    // Add a no-argument constructor
-    public Hairdresser() {
     }
 
     // Getters and Setters

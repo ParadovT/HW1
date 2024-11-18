@@ -6,7 +6,11 @@ public class Stylist {
     private String expertise;
     private int price;
 
-    // Constructor (optional)
+    // No-argument constructor
+    public Stylist() {
+    }
+
+    // Parameterized constructor
     public Stylist(String name, String skills, String expertise, int price) {
         this.name = name;
         this.skills = skills;
